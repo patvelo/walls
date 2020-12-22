@@ -1,12 +1,17 @@
-scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadHorizontal, function (sprite, location) {
-    tiles.setTileAt(tiles.getTileLocation(8, 12), sprites.dungeon.floorLight0)
-    tiles.setWallAt(tiles.getTileLocation(8, 12), false)
-    tiles.setTileAt(tiles.getTileLocation(9, 12), sprites.dungeon.floorLight0)
-    tiles.setWallAt(tiles.getTileLocation(9, 12), false)
+scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
+    tiles.setTileAt(location, sprites.dungeon.floorLight0)
+    tiles.setWallAt(tiles.getTileLocation(1, 5), false)
     tiles.setTileAt(tiles.getTileLocation(8, 5), sprites.vehicle.roadHorizontal)
     tiles.setWallAt(tiles.getTileLocation(8, 5), true)
     tiles.setTileAt(tiles.getTileLocation(9, 5), sprites.vehicle.roadHorizontal)
     tiles.setWallAt(tiles.getTileLocation(9, 5), true)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadVertical, function (sprite, location) {
+    tiles.setTileAt(location, sprites.dungeon.floorLight0)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadHorizontal, function (sprite, location) {
+    tiles.setTileAt(location, sprites.dungeon.floorLight0)
+    tiles.setWallAt(tiles.getTileLocation(12, 4), false)
 })
 tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a03000000000000000000000000080a0a03000000000000000000000000080a0a02040404040404040404040000080a0a0a0a0a0a0a0a0a0a0a0c0a0000080a0a0a0a0a0a0a0a0a0a0a0c0a0000080b0b06090909070a0a060909090000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a010000000000080a0a03000000080a0a010000000000080a0a03000000080a0a030000000000080a0a02040404050d0d030000000000080a0a0a0a0a0a0a0a0a030000000000080a0a0a0a0a0a0a0a0a03000000000009090909090909090909090000000000`, img`
     2 . . 2 . . . . . . . . . . . . 
@@ -21,7 +26,7 @@ tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a0300000000000000000000000
     2 . . 2 . . . 2 . . 2 . . . . . 
     2 . . 2 . . . 2 . . 2 . . . . . 
     2 . . 2 . . . 2 . . 2 . . . . . 
-    2 . . 2 2 2 2 2 2 2 2 . . . . . 
+    2 . . 2 2 2 2 2 . 2 2 . . . . . 
     2 . . . . . . . . . 2 . . . . . 
     2 . . . . . . . . . 2 . . . . . 
     2 2 2 2 2 2 2 2 2 2 2 . . . . . 
@@ -52,5 +57,6 @@ let Läufer = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
-controller.moveSprite(Läufer, 60, 40)
+Läufer.setPosition(20, 10)
+controller.moveSprite(Läufer, 47, 40)
 scene.cameraFollowSprite(Läufer)
