@@ -4,6 +4,16 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true
     },
+    "tile1": {
+        "data": "hwQQABAAAAAAAPEBAAAAAAAA8QEAAAAAAADxAQAAAAAAAPEBAAAAAAAA8QEAAAAAAADxAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
+    "tile2": {
+        "data": "hwQQABAAAAARERH//xEREREREf//ERERERER//8RERERERH//xEREREREf//ERERERER//8RERERERH//xEREREREf//ERERERER//8RERERERH//xEREREREf//ERERERER//8RERERERH//xEREREREf//ERERERER//8RERERERH//xEREQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
