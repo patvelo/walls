@@ -1,32 +1,39 @@
-tiles.setTilemap(tiles.createTilemap(hex`10001000090b0100000000000000000000000000090b0100000000000000000000000000090b0204040404040404040404040000090b0b0b0b0b0b0b0b0b0b0b0d0b0000090c060707070707080b060a0a0a0000090b010000000000090b010000000000090b010000000000090b030000000000090b010000000000090b030000000000090b010000000000090b030000000000090b010000000000090b010000000000090b010000000000090e010000000000090b030000000000090b030000000000090b030000000000090b030000000000090b020404040404050b030000000000090b0b0b0b0b0b0b0b0b0300000000000a0a0a0a0a0a0a0a0a0a0a0000000000`, img`
-    2 . 2 . . . . . . . . . . . . . 
-    2 . 2 . . . . . . . . . . . . . 
-    2 . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadHorizontal, function (sprite, location) {
+    tiles.setTileAt(location, sprites.dungeon.floorLight0)
+    tiles.setTileAt(tiles.getTileLocation(1, 4), sprites.dungeon.floorLight0)
+    tiles.setWallAt(tiles.getTileLocation(1, 4), false)
+    tiles.setTileAt(tiles.getTileLocation(9, 4), sprites.vehicle.roadHorizontal)
+    tiles.setWallAt(tiles.getTileLocation(9, 4), true)
+})
+tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a03000000000000000000000000080a0a03000000000000000000000000080a0a02040404040404040404040000080a0a0a0a0a0a0a0a0a0a0a0c0a0000080a0a0a0a0a0a0a0a0a0a0a0c0a0000080b0b06090909070a0a060909090000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a010000000000080a0a03000000080a0a010000000000080a0a03000000080a0a030000000000080a0a02040404050b0b030000000000080a0a0a0a0a0a0a0a0a030000000000080a0a0a0a0a0a0a0a0a03000000000009090909090909090909090000000000`, img`
+    2 . . 2 . . . . . . . . . . . . 
+    2 . . 2 . . . . . . . . . . . . 
+    2 . . 2 2 2 2 2 2 2 2 2 2 2 . . 
     2 . . . . . . . . . . . 2 . . . 
-    2 2 2 2 2 2 2 2 2 . 2 2 2 2 . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 . . . . . 2 . 2 . . . . . 
-    2 . 2 2 2 2 2 2 2 . 2 . . . . . 
+    2 . . . . . . . . . . . 2 . . . 
+    2 2 2 2 2 2 2 2 . . . . . . . . 
+    2 . . 2 . . . 2 . . 2 . . . . . 
+    2 . . 2 . . . 2 . . 2 . . . . . 
+    2 . . 2 . . . 2 . . 2 . . . . . 
+    2 . . 2 . . . 2 . . 2 . . . . . 
+    2 . . 2 . . . 2 . . 2 . . . . . 
+    2 . . 2 . . . 2 . . 2 . . . . . 
+    2 . . 2 2 2 2 2 2 2 2 . . . . . 
+    2 . . . . . . . . . 2 . . . . . 
     2 . . . . . . . . . 2 . . . . . 
     2 2 2 2 2 2 2 2 2 2 2 . . . . . 
-    `, [myTiles.transparency16,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorth1,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,sprites.dungeon.chestOpen], TileScale.Sixteen))
-let mySprite = sprites.create(img`
+    `, [myTiles.transparency16,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical], TileScale.Sixteen))
+let Läufer = sprites.create(img`
     ........................
-    .............ff2ffff....
-    ............ff2feeeeff..
-    ...........ff22feeeeef..
-    ...........feeeeffeeee..
-    ...........e2222eeffff..
-    ...........2effff222ef..
-    ...........ffeeeffffff..
-    ...........ee44fbe44ef..
-    ...........feddfb4d4ee..
+    ........................
+    ........................
+    ................eeeeef..
+    ................ffeeee..
+    ................eeffff..
+    ................f222ef..
+    ................ffffff..
+    ................be44ef..
+    ................b4d4ee..
     ........................
     ........................
     ........................
@@ -42,10 +49,8 @@ let mySprite = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Player)
-controller.moveSprite(mySprite)
-scene.cameraFollowSprite(mySprite)
+controller.moveSprite(Läufer, 60, 40)
+scene.cameraFollowSprite(Läufer)
 forever(function () {
-    if (null.overlapsWith(mySprite)) {
-    	
-    }
+	
 })
