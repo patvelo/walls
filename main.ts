@@ -1,10 +1,5 @@
-scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadHorizontal, function (sprite, location) {
-    tiles.setTileAt(location, sprites.dungeon.floorLight0)
-    tiles.setTileAt(tiles.getTileLocation(1, 4), sprites.dungeon.floorLight0)
-    tiles.setWallAt(tiles.getTileLocation(1, 4), false)
-    tiles.setTileAt(tiles.getTileLocation(9, 4), sprites.vehicle.roadHorizontal)
-    tiles.setWallAt(tiles.getTileLocation(9, 4), true)
-})
+let yLäufer = 0
+let xLäufer = 0
 tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a03000000000000000000000000080a0a03000000000000000000000000080a0a02040404040404040404040000080a0a0a0a0a0a0a0a0a0a0a0c0a0000080a0a0a0a0a0a0a0a0a0a0a0c0a0000080b0b06090909070a0a060909090000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a010000000000080a0a03000000080a0a010000000000080a0a03000000080a0a030000000000080a0a02040404050b0b030000000000080a0a0a0a0a0a0a0a0a030000000000080a0a0a0a0a0a0a0a0a03000000000009090909090909090909090000000000`, img`
     2 . . 2 . . . . . . . . . . . . 
     2 . . 2 . . . . . . . . . . . . 
@@ -52,5 +47,14 @@ let Läufer = sprites.create(img`
 controller.moveSprite(Läufer, 60, 40)
 scene.cameraFollowSprite(Läufer)
 forever(function () {
-	
+    xLäufer = Läufer.x
+    yLäufer = Läufer.y
+    if (yLäufer == 11) {
+        tiles.setTileAt(tiles.getTileLocation(8, 12), sprites.dungeon.floorLight0)
+        tiles.setWallAt(tiles.getTileLocation(8, 12), false)
+        tiles.setTileAt(tiles.getTileLocation(9, 12), sprites.dungeon.floorLight0)
+        tiles.setWallAt(tiles.getTileLocation(9, 12), false)
+        tiles.setTileAt(tiles.getTileLocation(9, 4), sprites.vehicle.roadHorizontal)
+        tiles.setWallAt(tiles.getTileLocation(9, 4), true)
+    }
 })
