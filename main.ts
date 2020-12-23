@@ -1,5 +1,6 @@
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
     tiles.setTileAt(location, sprites.dungeon.floorLight0)
+    pause(10)
     Zufallszahl = randint(1, 2)
     tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 5), false)
     tiles.setTileAt(tiles.getTileLocation(8, 5), sprites.vehicle.roadHorizontal)
@@ -12,6 +13,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadVertical, function (s
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.vehicle.roadHorizontal, function (sprite, location) {
     tiles.setTileAt(location, sprites.dungeon.floorLight0)
+    pause(10)
     Zufallszahl = randint(3, 4)
     tiles.setWallAt(tiles.getTileLocation(12, Zufallszahl), false)
 })
@@ -37,6 +39,7 @@ tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a0300000000000000000000000
     2 . . 2 . . . 2 . . 2 . . . . . 
     2 2 2 2 2 2 2 2 2 2 2 . . . . . 
     `, [myTiles.transparency16,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,myTiles.tile2,sprites.dungeon.greenOuterNorth1,sprites.dungeon.chestOpen,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest], TileScale.Sixteen))
+pause(10)
 let Läufer = sprites.create(img`
     ........................
     ........................
@@ -65,6 +68,8 @@ let Läufer = sprites.create(img`
     `, SpriteKind.Player)
 Läufer.setPosition(25, 25)
 controller.moveSprite(Läufer, 47, 40)
+pause(10)
 scene.cameraFollowSprite(Läufer)
+pause(10)
 Zufallszahl = randint(8, 9)
 tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 12), false)
