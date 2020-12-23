@@ -25,8 +25,8 @@ tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a0300000000000000000000000
     2 2 2 2 . . . . . . . . . . . . 
     2 . . 2 . . . . . . . . . . . . 
     2 . . 2 2 2 2 2 2 2 2 2 2 2 2 2 
-    2 . . . . . . . 2 . . . 2 . . 2 
-    2 . . . . . . . . . 2 . 2 . . 2 
+    2 . 2 . . . . . 2 . . . 2 . . 2 
+    2 . . . 2 . . . . . 2 . 2 . . 2 
     2 2 2 2 2 2 2 2 . . 2 2 2 2 2 2 
     2 . . 2 . . . 2 . . 2 . . . . . 
     2 . 2 2 . . . 2 . . 2 . . . . . 
@@ -41,33 +41,21 @@ tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a0300000000000000000000000
     `, [myTiles.transparency16,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,myTiles.tile2,sprites.dungeon.greenOuterNorth1,sprites.dungeon.chestOpen,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest], TileScale.Sixteen))
 pause(10)
 let Läufer = sprites.create(img`
-    ........................
-    ........................
-    ........................
-    ................eeeeef..
-    ................ffeeee..
-    ................eeffff..
-    ................f222ef..
-    ................ffffff..
-    ................be44ef..
-    ................b4d4ee..
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
-    ........................
+    . . f f f . . 
+    . . f f f . . 
+    . . . f . . . 
+    f f f f f f f 
+    . . . f . . . 
+    . . . f . . . 
+    . . . f . . . 
+    . f f f f f . 
+    . f f . f f . 
+    . f f . f f . 
+    . f f . f f . 
+    . f f . f f . 
     `, SpriteKind.Player)
-Läufer.setPosition(25, 25)
-controller.moveSprite(Läufer, 47, 40)
+Läufer.setPosition(30, 20)
+controller.moveSprite(Läufer, 33, 27)
 pause(10)
 scene.cameraFollowSprite(Läufer)
 pause(10)
