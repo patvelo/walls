@@ -1,8 +1,9 @@
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
     tiles.setTileAt(location, sprites.dungeon.floorLight0)
     pause(10)
-    Zufallszahl = randint(1, 200)
+    Zufallszahl = randint(1, 2)
     tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 5), false)
+    pause(10)
     tiles.setTileAt(tiles.getTileLocation(8, 5), sprites.vehicle.roadHorizontal)
     tiles.setWallAt(tiles.getTileLocation(8, 5), true)
     tiles.setTileAt(tiles.getTileLocation(9, 5), sprites.vehicle.roadHorizontal)
@@ -65,5 +66,4 @@ if (Zufallszahl % 2 == 0) {
 } else {
     Zufallszahl = 9
 }
-pause(10)
 tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 12), false)
