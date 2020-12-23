@@ -1,7 +1,7 @@
 scene.onOverlapTile(SpriteKind.Player, myTiles.tile2, function (sprite, location) {
     tiles.setTileAt(location, sprites.dungeon.floorLight0)
     pause(10)
-    Zufallszahl = randint(1, 2)
+    Zufallszahl = randint(1, 200)
     tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 5), false)
     tiles.setTileAt(tiles.getTileLocation(8, 5), sprites.vehicle.roadHorizontal)
     tiles.setWallAt(tiles.getTileLocation(8, 5), true)
@@ -25,8 +25,8 @@ tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a0300000000000000000000000
     2 2 2 2 . . . . . . . . . . . . 
     2 . . 2 . . . . . . . . . . . . 
     2 . . 2 2 2 2 2 2 2 2 2 2 2 2 2 
-    2 . 2 . . . . . 2 . . . 2 . . 2 
-    2 . . . 2 2 2 . . . 2 . 2 . . 2 
+    2 . . . . . . . 2 . . . 2 . . 2 
+    2 . . . . . . . . . 2 . 2 . . 2 
     2 2 2 2 2 2 2 2 . . 2 2 2 2 2 2 
     2 . . 2 . . . 2 . . 2 . . . . . 
     2 . 2 2 . . . 2 . . 2 . . . . . 
@@ -71,5 +71,11 @@ controller.moveSprite(Läufer, 47, 40)
 pause(10)
 scene.cameraFollowSprite(Läufer)
 pause(10)
-Zufallszahl = randint(8, 9)
+Zufallszahl = randint(1, 200)
+if (Zufallszahl % 2 == 0) {
+    Zufallszahl = 8
+} else {
+    Zufallszahl = 9
+}
+pause(10)
 tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 12), false)
