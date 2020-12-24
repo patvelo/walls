@@ -22,6 +22,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (spri
     game.over(true)
 })
 let Zufallszahl = 0
+scene.setBackgroundColor(10)
 tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a03000000000000000000000000080a0a03000000000000000000000000080a0a02040404040404040404040410080a0a0a0a0a0a0a0a0a0a0a0c0a0f01080a0a0a0a0a0a0a0a0a0a0a0c0a0f01080b0b06090909070a0a060909090e11080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a030000000000080a0a03000000080a0a010000000000080a0a03000000080a0a010000000000080a0a03000000080a0a030000000000080a0a02040404050d0d030000000000080a0a0a0a0a0a0a0a0a030000000000080a0a0a0a0a0a0a0a0a03000000000012090909090909090909110000000000`, img`
     2 2 2 2 . . . . . . . . . . . . 
     2 . . 2 . . . . . . . . . . . . 
@@ -42,18 +43,18 @@ tiles.setTilemap(tiles.createTilemap(hex`10001000080a0a0300000000000000000000000
     `, [myTiles.transparency16,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.floorLight0,sprites.vehicle.roadHorizontal,sprites.vehicle.roadVertical,myTiles.tile2,sprites.dungeon.greenOuterNorth1,sprites.dungeon.chestOpen,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.greenInnerSouthWest], TileScale.Sixteen))
 pause(10)
 let Läufer = sprites.create(img`
-    . . f f f . . 
-    . . f f f . . 
-    . . . f . . . 
-    f f f f f f f 
-    . . . f . . . 
-    . . . f . . . 
-    . . . f . . . 
-    . f f f f f . 
-    . f f . f f . 
-    . f f . f f . 
-    . f f . f f . 
-    . f f . f f . 
+    8 8 8 8 8 8 8 
+    8 8 8 8 8 8 8 
+    8 8 8 8 8 8 8 
+    8 8 9 9 9 8 8 
+    8 8 9 9 f 8 8 
+    8 8 9 9 9 8 8 
+    8 8 9 9 9 8 8 
+    8 8 9 8 9 8 8 
+    8 8 9 8 9 8 8 
+    8 8 8 8 8 8 8 
+    8 8 8 8 8 8 8 
+    8 8 8 8 8 8 8 
     `, SpriteKind.Player)
 Läufer.setPosition(30, 20)
 controller.moveSprite(Läufer, 33, 27)
@@ -67,3 +68,8 @@ if (Zufallszahl % 2 == 0) {
     Zufallszahl = 9
 }
 tiles.setWallAt(tiles.getTileLocation(Zufallszahl, 12), false)
+forever(function () {
+    if (Läufer.isHittingTile(CollisionDirection.Left) || (Läufer.isHittingTile(CollisionDirection.Right) || (Läufer.isHittingTile(CollisionDirection.Top) || Läufer.isHittingTile(CollisionDirection.Bottom)))) {
+        music.playMelody("C5 B F A D G E C ", 1000)
+    }
+})
